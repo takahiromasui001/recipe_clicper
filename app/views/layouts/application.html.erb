@@ -12,9 +12,12 @@
   </head>
 
   <body>
-    <%= render 'shared/header' %>
-    <main class="container mx-auto max-w-6xl py-10">
-      <%= yield %>
-    </main>
+    <div data-controller="modal" >
+      <%= render 'shared/header' %>
+      <main class="container mx-auto max-w-6xl py-10">
+        <%= yield %>
+      </main>
+      <%= render 'shared/full_modal' %>
+    </div>
   </body>
 </html>
