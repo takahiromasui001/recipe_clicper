@@ -16,4 +16,8 @@ export default class extends Controller {
     event.preventDefault();
     this.modalTarget.classList.add('hidden');
   }
+
+  close_with_event(event) {
+    this.modalTarget.classList.add('hidden');
+  }
 }

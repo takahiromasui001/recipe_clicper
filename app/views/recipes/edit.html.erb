@@ -1,0 +1,12 @@
+<%= turbo_frame_tag 'full-modal' do %>
+  <header class="border-b border-gray-300 shadow-md">
+    <div class="m-auto px-10 h-16 flex items-center justify-between">
+      <button data-action="click->modal#close">
+        もどる
+      </button>
+    </div>
+  </header>
+  <main class="container mx-auto max-w-3xl py-10 text-center">
+    <%= render 'form' %>
+  </main>
+<% end %>
