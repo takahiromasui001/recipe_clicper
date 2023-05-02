@@ -1,5 +1,6 @@
 <header class="border-b border-gray-300 shadow-md">
-  <div class="m-auto max-w-6xl h-16 flex items-center text-2xl">
+  <div class="m-auto px-4 max-w-6xl h-16 flex items-center text-2xl justify-between">
     <%= link_to 'Recipe Clipper', root_path%>
+    <%= link_to '登録', new_recipe_path, class: 'text-lg', data: { turbo_frame: "full-modal", action: "click->modal#open_with_event" } %>
   </div>
 </header>
