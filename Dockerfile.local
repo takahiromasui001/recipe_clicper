@@ -22,6 +22,8 @@ RUN apk add --update --no-cache \
   font-noto-cjk \
   nodejs \
   yarn \
+  libpq \
+  postgresql-dev \
   && rm -rf /var/cache/apk/*
 
 # Nokogiriライブラリをインストール
