@@ -12,7 +12,9 @@ services:
       - mysql-data:/var/lib/mysql
 
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.local
     ports:
       - '3000:3000'
     depends_on:
