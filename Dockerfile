@@ -10,7 +10,8 @@ LABEL fly_launch_runtime="rails"
 WORKDIR /rails
 
 # Set production environment
-ENV RAILS_ENV="development" \
+ENV RAILS_ENV="production" \
+    BUNDLE_WITHOUT="development:test" \
     BUNDLE_DEPLOYMENT="1"
 
 # Update gems and bundler
@@ -29,10 +30,6 @@ FROM base as build
 # Install packages needed to build gems
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential libpq-dev
-
-# Install packages for additional
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y fonts-freefont-ttf fonts-noto-cjk fonts-ipafont
 
 # Build options
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="true"

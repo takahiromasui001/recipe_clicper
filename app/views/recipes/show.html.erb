@@ -17,7 +17,9 @@
       <%= link_to '元のページを表示', @recipe.url, target: :blank %>
     </div>
     <div class="overflow-auto h-full">
-      <%= image_tag url_for(@recipe.screenshot), class: 'w-full' %>
+      <% if @recipe.screenshot.present? %>
+        <%= image_tag url_for(@recipe.screenshot), class: 'w-full' %>
+      <% end %>
     </div>
   </main>
 <% end %>
