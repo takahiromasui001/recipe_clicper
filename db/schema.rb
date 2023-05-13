@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_02_093948) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_134550) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,13 +42,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_093948) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "recipe_folders", force: :cascade do |t|
+    t.string "name", null: false, comment: "フォルダ名"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "recipes", comment: "レシピ", force: :cascade do |t|
     t.string "name", null: false, comment: "レシピ名"
     t.string "url", null: false, comment: "レシピURL"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "recipe_folder_id"
+    t.index ["recipe_folder_id"], name: "index_recipes_on_recipe_folder_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "recipes", "recipe_folders"
 end
