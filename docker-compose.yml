@@ -15,7 +15,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile.local
+      dockerfile: Dockerfile.local.old
     ports:
       - '3000:3000'
     depends_on:
@@ -32,7 +32,7 @@ services:
   css:
     build:
       context: .
-      dockerfile: Dockerfile.local
+      dockerfile: Dockerfile.local.old
     command: ['bin/rails', 'tailwindcss:watch']
     tty: true
     volumes:
