@@ -14,9 +14,14 @@
   <body>
     <div data-controller="modal" >
       <%= render 'shared/header' %>
-      <main class="container mx-auto max-w-6xl py-10">
-        <%= yield %>
-      </main>
+      <div class="flex container mx-auto max-w-6xl py-10 ">
+        <aside class="left-pane w-1/6 pl-8">
+          <%= render 'shared/side' %>
+        </aside>
+        <main class="w-5/6">
+          <%= yield %>
+        </main>
+      </div>
       <%= render 'shared/full_modal' %>
     </div>
   </body>
