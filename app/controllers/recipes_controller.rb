@@ -1,6 +1,13 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @folder_id = params[:folder_id]
+    @recipes =
+      if @folder_id.present?
+        @folder = RecipeFolder.find(@folder_id)
+        @folder.recipes
+      else
+        Recipe.all
+      end
   end
 
   def show

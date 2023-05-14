@@ -1,5 +1,5 @@
 class Recipe < ApplicationRecord
   has_one_attached :screenshot
 
-  belongs_to :recipe_folder
+  belongs_to :recipe_folder, optional: true
 end
