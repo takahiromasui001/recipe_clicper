@@ -1,13 +1,15 @@
 class RecipesController < ApplicationController
   def index
     @folder_id = params[:folder_id]
-    @recipes =
+    targets =
       if @folder_id.present?
         @folder = RecipeFolder.find(@folder_id)
         @folder.recipes
       else
         Recipe.all
       end
+    @q = targets.ransack(params[:q])
+    @recipes = @q.result
   end
 
   def show

@@ -1,5 +1,2 @@
-<header class="border-b border-color-gray200 mb-6">
-  <% title = @folder.present? ? @folder.name : 'レシピ' %>
-  <h1 class="mb-4 text-2xl"><%= title %></h1>
-</header>
+<%= render 'recipe_list_header', folder: @folder %>
 <%= render 'recipe_list' %>
