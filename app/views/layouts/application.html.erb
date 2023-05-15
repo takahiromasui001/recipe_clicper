@@ -15,11 +15,15 @@
     <div data-controller="modal" >
       <%= render 'shared/header' %>
       <div class="flex container mx-auto max-w-6xl py-10 ">
-        <aside class="left-pane w-1/6 pl-8">
-          <%= render 'shared/side' %>
-        </aside>
+        <% if user_signed_in? %>
+          <aside class="left-pane w-1/6 pl-8">
+            <%= render 'shared/side' %>
+          </aside>
+        <% end %>
         <main class="w-5/6">
           <%= yield %>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
         </main>
       </div>
       <%= render 'shared/full_modal' %>
