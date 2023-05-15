@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_14_040837) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_15_144523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_14_040837) do
     t.string "name", null: false, comment: "フォルダ名"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_recipe_folders_on_user_id"
   end
 
   create_table "recipes", comment: "レシピ", force: :cascade do |t|
@@ -54,7 +56,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_14_040837) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "recipe_folder_id"
+    t.bigint "user_id", null: false
     t.index ["recipe_folder_id"], name: "index_recipes_on_recipe_folder_id"
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,5 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_14_040837) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "recipe_folders", "users"
   add_foreign_key "recipes", "recipe_folders"
+  add_foreign_key "recipes", "users"
 end
