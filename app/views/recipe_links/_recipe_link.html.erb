@@ -1,3 +1,4 @@
-<div class="ml-3">
+<div class="ml-3 text-lg flex" id="recipe_<%= recipe.id%>">
   <%= link_to recipe.name, recipe_path(recipe), data: { turbo_frame: "full-modal", action: "click->modal#open_with_event" } %>
+  <%= button_to '[x]', recipe_link_path(recipe), method: :delete %>
 </div>
