@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'recipes#index'
   resources :recipes
+  resources :recipe_links
 
   if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
 end

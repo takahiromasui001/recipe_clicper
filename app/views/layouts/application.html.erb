@@ -26,6 +26,9 @@
           <p class="alert"><%= alert %></p>
         </main>
       </div>
+      <% if user_signed_in? %>
+        <%= render 'shared/footer' %>
+      <% end %>
       <%= render 'shared/full_modal' %>
     </div>
   </body>
