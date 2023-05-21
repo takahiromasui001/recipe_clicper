@@ -1,10 +1,11 @@
-# fly.toml app configuration file generated for recipe-clipper on 2023-05-07T14:14:07+09:00
+# fly.toml app configuration file generated for recipe-clipper on 2023-05-20T17:03:52+09:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
 app = "recipe-clipper"
 primary_region = "nrt"
+console_command = "/rails/bin/rails console"
 
 [http_service]
   internal_port = 3000
