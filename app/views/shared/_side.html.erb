@@ -1,7 +1,7 @@
 <%= link_to recipes_path do %>
   <button class="flex text-lg py-1">レシピ</button>
 <% end %>
-<% @folders = RecipeFolder.all %>
+<% @folders = current_user.recipe_folders %>
 <% @folders.each do |folder| %>
   <%= link_to recipes_path(folder_id: folder.id) do %>
     <button class="flex text-lg pl-4 py-1"><%= folder.name %></button>

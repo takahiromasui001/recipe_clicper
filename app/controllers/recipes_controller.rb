@@ -3,21 +3,21 @@ class RecipesController < ApplicationController
     @folder_id = params[:folder_id]
     targets =
       if @folder_id.present?
-        @folder = RecipeFolder.find(@folder_id)
+        @folder = current_user.recipe_folders.find(@folder_id)
         @folder.recipes
       else
-        Recipe.all
+        current_user.recipes
       end
     @q = targets.ransack(params[:q])
     @recipes = @q.result
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.build
   end
 
   def create
@@ -31,11 +31,11 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
 
     @recipe.update!(recipe_params)
 
@@ -43,7 +43,7 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
 
     @recipe.destroy!
 
