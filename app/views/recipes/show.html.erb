@@ -10,9 +10,9 @@
     </div>
   </header>
   <main class="container mx-auto max-w-3xl py-10 text-center h-full"> 
-    <h1 class="text-3xl">
+    <h1 class="text-3xl flex justify-center">
       <%= @recipe.name %>
-      <%= button_to '登録', recipe_links_path(recipe_id: @recipe.id), method: :post, class: 'text-xl' %>
+      <%= button_to '➕', recipe_links_path(recipe_id: @recipe.id), method: :post, class: 'text-2xl ml-2' %>
     </h1>
     <div class="mt-10 mb-5">
       <%= link_to '元のページを表示', @recipe.url, target: :blank %>

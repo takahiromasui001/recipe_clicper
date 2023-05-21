@@ -24,12 +24,12 @@
         <% button_label = @recipe.persisted? ? '更新' : '登録' %>
         <%= f.submit button_label, class: "flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 rounded text-lg" %>
       </div>
-      <div class="p-10 w-full">
-        <% if @recipe.persisted? %>
+      <% if @recipe.persisted? %>
+        <div class="p-10 w-full">
           <%= link_to recipe_path(id: @recipe.id), data: { turbo_method: :delete, action: "click->modal#close_with_event", turbo_frame: "recipe-list" } do %>
             <button class="flex mx-auto text-indigo-500 border-1 py-2 px-8 rounded text-lg">削除</button>
-          <% end %>
         <% end %>
+      <% end %>
       </div>
     </div>
   </div>
