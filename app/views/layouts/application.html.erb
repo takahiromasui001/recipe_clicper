@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div data-controller="modal" >
+    <div data-controller="modal loading" >
       <%= render 'shared/header' %>
       <div class="flex container mx-auto max-w-6xl py-10 ">
         <% if user_signed_in? %>
@@ -30,6 +30,7 @@
         <%= render 'shared/footer' %>
       <% end %>
       <%= render 'shared/full_modal' %>
+      <%= render 'shared/loading'%>
     </div>
   </body>
 </html>
