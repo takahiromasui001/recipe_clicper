@@ -259,6 +259,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   letter_opener_web
+  nokogiri
   pg
   puma (~> 5.0)
   puppeteer-ruby

@@ -3,7 +3,7 @@
     <% @recipes.each do |recipe| %>
         <div class="p-4 md:w-1/3">
           <%= link_to recipe_path(recipe), data: { turbo_frame: "full-modal", action: "click->modal#open_with_event" } do %>
-            <%= render 'shared/card', title: recipe.name %>
+            <%= render 'shared/card', title: recipe.name, thumbnail: recipe.thumbnail %>
           </div>
       <% end %>
     <% end %>

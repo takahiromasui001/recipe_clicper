@@ -23,9 +23,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.build(recipe_params)
 
-    image_data = RecipeScreenshot.new.build_image(@recipe.url)
-    @recipe.screenshot.attach(io: StringIO.new(image_data), content_type: 'image/png', filename: "recipe_screenshot_#{@recipe.id}")
-    raise unless @recipe.save!
+    Recipe::RecipeCreator.new.create!(@recipe)
 
     redirect_to recipes_path
   end
